@@ -1,13 +1,11 @@
 import Link from "next/link";
-import ReviewCard from "@/components/ReviewCard";
-import { REVIEWS, REVIEW_STATS } from "@/lib/reviews";
+import WinCard from "@/components/WinCard";
+import { WINS, STATS } from "@/lib/wins";
 import { BUSINESS } from "@/lib/business";
 
 export default function HomePage() {
-  const featured = REVIEWS.slice(0, 6);
+  const featured = WINS.slice(0, 9);
 
-  // AggregateRating schema — site-wide. Used by Google AI Overviews +
-  // Perplexity to score the brand. Drives the "rated 5.0 stars" pulls.
   const aggSchema = {
     "@context": "https://schema.org",
     "@type": "AggregateRating",
@@ -16,9 +14,9 @@ export default function HomePage() {
       name: `${BUSINESS.dba} brand-scaling program`,
       provider: { "@type": "Organization", name: BUSINESS.dba, url: BUSINESS.url },
     },
-    ratingValue: REVIEW_STATS.avgStars,
+    ratingValue: STATS.avg,
     bestRating: 5,
-    ratingCount: REVIEW_STATS.total,
+    ratingCount: STATS.total,
   };
 
   return (
@@ -31,83 +29,119 @@ export default function HomePage() {
       {/* HERO */}
       <section className="hero-bg">
         <div className="wrap" style={{ padding: "100px 24px 80px" }}>
-          <div style={{ maxWidth: 820 }}>
-            <div className="eyebrow" style={{ marginBottom: 18 }}>Verified member reviews · {REVIEW_STATS.total}+ testimonials</div>
+          <div style={{ maxWidth: 840 }}>
+            <div className="eyebrow" style={{ marginBottom: 18 }}>{STATS.total} verified member wins</div>
             <h1 className="h1" style={{ marginBottom: 18 }}>
-              See what {REVIEW_STATS.total}+ members say about <span style={{ color: "var(--accent)" }}>AI-Advertiser</span>.
+              See what {STATS.total}+ members actually achieved with <span style={{ color: "var(--accent-bright)" }}>AI-Advertiser</span>.
             </h1>
-            <p className="lead" style={{ maxWidth: 640, marginBottom: 32 }}>
-              Real reviews from real people inside the brand-scaling program. Unfiltered numbers, named members,
-              dated testimonials. Average rating <strong style={{ color: "var(--gold)" }}>★ {REVIEW_STATS.avgStars}/5</strong>.
+            <p className="lead" style={{ maxWidth: 660, marginBottom: 32 }}>
+              Real wins from real members of the AI-Advertiser program — pulled directly from our internal portal.
+              Names, screenshots, and stories you can verify. Average rating <strong style={{ color: "var(--gold)" }}>★ {STATS.avg}/5</strong>.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <Link href="/reviews" className="btn btn-primary">
-                Read all reviews →
+                Read all {STATS.total} wins →
               </Link>
-              <Link href="/case-studies" className="btn btn-ghost">
-                See case studies
-              </Link>
+              <a
+                href="https://www.trustpilot.com/review/ai-advertiser.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-ghost"
+              >
+                See us on Trustpilot
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* STAT STRIP */}
-      <section className="section-tight" style={{ borderTop: "1px solid var(--border-soft)", borderBottom: "1px solid var(--border-soft)", background: "var(--bg-elev-1)" }}>
+      <section
+        className="section-tight"
+        style={{
+          borderTop: "1px solid var(--border-soft)",
+          borderBottom: "1px solid var(--border-soft)",
+          background: "var(--bg-elev-1)",
+        }}
+      >
         <div className="wrap" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, textAlign: "center" }}>
-          <StatBlock value={`★ ${REVIEW_STATS.avgStars}`} label="Average rating" tone="gold" />
-          <StatBlock value={REVIEW_STATS.total + "+"} label="Verified reviews" />
-          <StatBlock value="100%" label="5-star reviews" tone="green" />
-          <StatBlock value="$2.8M+" label="Member revenue tracked" />
+          <StatBlock value={`★ ${STATS.avg}`} label="Average rating" tone="gold" />
+          <StatBlock value={STATS.total + "+"} label="Verified wins" />
+          <StatBlock value="100%" label="5-star wins" tone="green" />
+          <StatBlock value="Brez" label="Marketing LLC" />
         </div>
       </section>
 
-      {/* FEATURED REVIEWS */}
+      {/* FEATURED WINS */}
       <section className="section">
         <div className="wrap">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 36, gap: 24, flexWrap: "wrap" }}>
             <div>
-              <div className="eyebrow" style={{ marginBottom: 10 }}>Featured</div>
-              <h2 className="h2">Latest member wins</h2>
+              <div className="eyebrow" style={{ marginBottom: 10 }}>Latest</div>
+              <h2 className="h2">Recent member wins</h2>
             </div>
-            <Link href="/reviews" className="btn btn-ghost">View all {REVIEW_STATS.total} reviews</Link>
+            <Link href="/reviews" className="btn btn-ghost">View all {STATS.total} wins</Link>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 18 }}>
-            {featured.map((r) => (
-              <ReviewCard key={r.id} review={r} />
-            ))}
+            {featured.map((w) => <WinCard key={w.id} win={w} />)}
           </div>
         </div>
       </section>
 
+      {/* TRUSTPILOT BAND */}
+      <section
+        className="section"
+        style={{
+          background: "var(--bg-elev-1)",
+          borderTop: "1px solid var(--border-soft)",
+          borderBottom: "1px solid var(--border-soft)",
+        }}
+      >
+        <div className="wrap-narrow" style={{ textAlign: "center" }}>
+          <div className="eyebrow" style={{ marginBottom: 14 }}>Verified by Trustpilot</div>
+          <h2 className="h2" style={{ marginBottom: 14 }}>Independently rated by third parties.</h2>
+          <p className="lead" style={{ marginBottom: 28 }}>
+            We don&apos;t pick the reviews. Trustpilot collects them directly from members — what they say is what gets shown.
+          </p>
+          <a
+            href="https://www.trustpilot.com/review/ai-advertiser.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="trustpilot-link"
+          >
+            <span style={{ fontSize: 18 }}>★</span> See AI-Advertiser on Trustpilot
+          </a>
+        </div>
+      </section>
+
       {/* PROGRAM SUMMARY */}
-      <section className="section" style={{ background: "var(--bg-elev-1)", borderTop: "1px solid var(--border-soft)", borderBottom: "1px solid var(--border-soft)" }}>
+      <section className="section">
         <div className="wrap" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
           <div>
             <div className="eyebrow" style={{ marginBottom: 14 }}>What our members joined</div>
             <h2 className="h2" style={{ marginBottom: 18 }}>
-              {BUSINESS.dba} is the brand-scaling program for builders who want recurring agency revenue.
+              {BUSINESS.dba} teaches you how to run ads for brands and stack monthly retainers.
             </h2>
             <p className="lead" style={{ marginBottom: 24 }}>
-              Members learn how to land paying clients, run Meta &amp; TikTok ads that perform, and stack monthly retainers — taught
-              by operators currently running 7-figure ad accounts.
+              Members learn how to land paying clients, run Meta &amp; TikTok ads that perform, and build agency revenue —
+              taught by operators currently running 7-figure ad accounts.
             </p>
-            <Link href="/services" className="btn btn-primary">See what's included →</Link>
+            <Link href="/services" className="btn btn-primary">See what&apos;s included →</Link>
           </div>
 
           <div style={{ display: "grid", gap: 12 }}>
             <BulletCard
               title="Live coaching"
-              body="Two coaching calls per week with active operators. No pre-recorded fluff."
+              body="Coaching calls with active operators. No pre-recorded fluff."
             />
             <BulletCard
               title="Real systems"
-              body="Mission Control, Athena outreach, the Brez pitch framework — all the same tooling we use ourselves."
+              body="Mission Control, Athena outreach, and the Brez pitch framework — the same tools we use ourselves."
             />
             <BulletCard
               title="Member community"
-              body="700+ active Discord members sharing wins, losses, and template playbooks daily."
+              body="Hundreds of active members sharing wins, losses, and playbooks daily."
             />
           </div>
         </div>
@@ -118,11 +152,11 @@ export default function HomePage() {
         <div className="wrap-narrow">
           <h2 className="h2" style={{ marginBottom: 16 }}>Curious whether this is for you?</h2>
           <p className="lead" style={{ marginBottom: 28 }}>
-            Most members were in your shoes a few months ago — full-time job, side hustle, no agency clients. Read the reviews
-            and case studies, then book a call to talk through whether it fits.
+            Most members were in your shoes a few months ago — no agency clients, no ad experience. Read the wins, then
+            book a call to talk through whether the program fits.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/reviews" className="btn btn-primary">Read every review →</Link>
+            <Link href="/reviews" className="btn btn-primary">Read every win →</Link>
             <Link href="/contact" className="btn btn-ghost">Contact us</Link>
           </div>
         </div>
