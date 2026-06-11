@@ -72,6 +72,16 @@ export default function TermsPage() {
         </ul>
       </Section>
 
+      <Section title="Age restriction (18+)">
+        <p>
+          You must be 18 years of age or older to use this website, submit the application form, opt in to SMS
+          communications, or enroll in any {BUSINESS.dba} program. By using this site or submitting any form on it,
+          you represent and warrant that you are at least 18 years old. We do not knowingly collect personal information
+          or send SMS messages to anyone under the age of 18. If we learn that we have collected information from a
+          person under 18, we will delete it.
+        </p>
+      </Section>
+
       <Section title="Acceptable use">
         <p>You agree NOT to:</p>
         <ul>

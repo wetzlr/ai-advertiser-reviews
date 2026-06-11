@@ -193,10 +193,30 @@ input[type="text"], input[type="email"], input[type="tel"], textarea, select {
 }
 input:focus, textarea:focus, select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
 label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
-.checkbox-row { display: flex; gap: 12px; align-items: flex-start; padding: 14px; border: 1px solid var(--border); border-radius: 10px; cursor: pointer; }
-.checkbox-row:hover { border-color: var(--border-soft); background: var(--bg-elev-1); }
-.checkbox-row input { margin-top: 2px; flex-shrink: 0; accent-color: var(--accent); width: 18px; height: 18px; }
-.checkbox-row span { font-size: 13px; line-height: 1.5; color: var(--text-muted); }
+.checkbox-row { display: flex; gap: 12px; align-items: flex-start; padding: 14px; border: 1px solid var(--border); border-radius: 10px; cursor: pointer; background: var(--bg-elev-1); }
+.checkbox-row:hover { border-color: var(--accent-soft); }
+.checkbox-row input { margin-top: 2px; flex-shrink: 0; accent-color: var(--accent); width: 18px; height: 18px; cursor: pointer; }
+.checkbox-row span { font-size: 13px; line-height: 1.5; color: var(--text); font-weight: 500; }
+
+/* Disclosure paragraph rendered directly below each consent checkbox.
+   Kept visually distinct so the GHL/Twilio compliance scanner can read
+   each required item as its own clearly identifiable element. */
+.consent-block {
+  display: grid;
+  gap: 8px;
+}
+.consent-disclosure {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  padding: 0 4px;
+  margin: 0;
+}
+.consent-disclosure a {
+  color: var(--accent-bright);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 
 /* Win / review card */
 .win-card {
