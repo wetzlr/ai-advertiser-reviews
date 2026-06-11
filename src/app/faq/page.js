@@ -5,27 +5,23 @@ export const metadata = { title: "FAQ" };
 const FAQ = [
   {
     q: "Are these reviews real?",
-    a: "Yes. Every review on this site is from a verified program member, pulled from our internal member portal. We don't edit reviews for sentiment. What they wrote is what's published.",
+    a: "Yes. Every review on this site is from a verified program member, pulled directly from our internal member portal. We don't edit reviews for sentiment. What they wrote is what's published.",
   },
   {
-    q: "How long does it usually take to land a first client?",
-    a: "Most members close their first paying client between week 3 and week 8. The fastest we've seen is week 1 (an existing operator who restructured their offer); the longest typical is week 12. It depends on time put in and prior experience.",
+    q: "How long does it take to land a first client?",
+    a: "It depends entirely on how much work you put in. Some members land their first client in the first week. For others it takes longer. Your timeline is a function of your effort, prior experience, and the niche you target. We help you get there. We can't promise a specific timeline.",
   },
   {
     q: "Do I need ad experience to join?",
-    a: "No. About 60% of members come in with zero paid-ad experience. The curriculum covers from first-principles: how ad platforms work, how to structure tests, and how to read performance data.",
+    a: "No. The curriculum is designed for people with no prior paid-ad experience. We cover the platforms, the strategy, and the tooling from first principles.",
   },
   {
-    q: "What's the time commitment per week?",
-    a: "Plan for 10-15 hours per week if you want to ramp inside the first 60 days. That includes coaching calls (Mon + Wed), prospecting, deliverable work for early clients, and curriculum.",
-  },
-  {
-    q: "Is there a refund policy?",
-    a: "Yes. Refund terms are written in the contract you sign at enrollment. Refunds are evaluated on a case-by-case basis when members can demonstrate they've completed the program milestones and the program didn't perform as promised.",
+    q: "What's the time commitment?",
+    a: "That's up to you. The program is self-paced for the curriculum, with live coaching at fixed times. Members who put in more focused time tend to see faster progress, but there's no minimum hours requirement.",
   },
   {
     q: "How do I get in touch?",
-    a: `Email ${BUSINESS.contactEmail} or use the contact form. We respond within one business day.`,
+    a: `Email ${BUSINESS.contactEmail} or use the application form on the homepage. We respond within one business day.`,
   },
   {
     q: "Do you send text messages?",
@@ -33,12 +29,11 @@ const FAQ = [
   },
   {
     q: "Is this affiliated with any other agency program?",
-    a: "No. AI-Advertiser is operated independently by Brez Marketing LLC. We don't sell, share, or buy leads from third parties.",
+    a: "No. AI-Advertiser is operated independently by Brez Marketing LLC. We don't sell, share, or buy leads from third parties. For an independently-verified read on the program, check our Trustpilot profile.",
   },
 ];
 
 export default function FAQPage() {
-  // FAQPage schema markup — picked up by Google for FAQ rich results.
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -57,7 +52,7 @@ export default function FAQPage() {
         <div className="wrap-narrow" style={{ padding: "80px 24px 40px" }}>
           <div className="eyebrow" style={{ marginBottom: 14 }}>Frequently asked</div>
           <h1 className="h1" style={{ marginBottom: 16 }}>Questions, answered.</h1>
-          <p className="lead">If you have a question that isn&apos;t here, email {BUSINESS.contactEmail} or use the contact form.</p>
+          <p className="lead">If you have a question that isn&apos;t here, email {BUSINESS.contactEmail} or use the application form on the homepage.</p>
         </div>
       </section>
 

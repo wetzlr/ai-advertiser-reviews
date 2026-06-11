@@ -29,19 +29,39 @@ export default function HomePage() {
 
       {/* HERO */}
       <section className="hero-bg">
-        <div className="wrap" style={{ padding: "100px 24px 80px" }}>
+        <div className="wrap" style={{ padding: "104px 24px 88px" }}>
           <div style={{ maxWidth: 840 }}>
-            <div className="eyebrow" style={{ marginBottom: 18 }}>Verified member wins</div>
-            <h1 className="h1" style={{ marginBottom: 18 }}>
-              Real wins from real members of <span style={{ color: "var(--accent-bright)" }}>AI-Advertiser</span>.
+            <div
+              className="eyebrow"
+              style={{
+                marginBottom: 22,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                padding: "6px 14px",
+                background: "rgba(77, 124, 255, 0.08)",
+                border: "1px solid rgba(77, 124, 255, 0.22)",
+                borderRadius: 999,
+              }}
+            >
+              <span style={{ width: 6, height: 6, borderRadius: 999, background: "var(--green)", boxShadow: "0 0 8px var(--green)" }} />
+              <span>Verified member wins</span>
+            </div>
+            <h1 className="h1" style={{ marginBottom: 20 }}>
+              Real wins from real members of{" "}
+              <span style={{ background: "linear-gradient(135deg, var(--accent-bright) 0%, #a3c0ff 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                AI-Advertiser
+              </span>
+              .
             </h1>
-            <p className="lead" style={{ maxWidth: 660, marginBottom: 32 }}>
+            <p className="lead" style={{ maxWidth: 660, marginBottom: 36 }}>
               Pulled directly from our internal member portal. Names, screenshots, and stories you can verify.
               What members submit is what gets shown.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <Link href="/reviews" className="btn btn-primary">
                 Read member wins
+                <span style={{ marginLeft: 2 }}>→</span>
               </Link>
               <a
                 href="https://www.trustpilot.com/review/ai-advertiser.com"
@@ -57,7 +77,7 @@ export default function HomePage() {
       </section>
 
       {/* FEATURED WINS */}
-      <section className="section">
+      <section className="section dot-grid-bg">
         <div className="wrap">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 36, gap: 24, flexWrap: "wrap" }}>
             <div>
@@ -77,12 +97,25 @@ export default function HomePage() {
       <section
         className="section"
         style={{
-          background: "var(--bg-elev-1)",
+          background:
+            "linear-gradient(180deg, var(--bg) 0%, var(--bg-elev-1) 30%, var(--bg-elev-1) 70%, var(--bg) 100%)",
           borderTop: "1px solid var(--border-soft)",
           borderBottom: "1px solid var(--border-soft)",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
-        <div className="wrap-narrow" style={{ textAlign: "center" }}>
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "radial-gradient(circle at 50% 50%, rgba(0, 182, 122, 0.08) 0%, transparent 55%)",
+            pointerEvents: "none",
+          }}
+        />
+        <div className="wrap-narrow" style={{ textAlign: "center", position: "relative" }}>
           <div className="eyebrow" style={{ marginBottom: 14 }}>Independently verified</div>
           <h2 className="h2" style={{ marginBottom: 14 }}>See us on Trustpilot.</h2>
           <p className="lead" style={{ marginBottom: 28 }}>
@@ -100,7 +133,7 @@ export default function HomePage() {
       </section>
 
       {/* PROGRAM + OPT-IN */}
-      <section className="section" id="apply">
+      <section className="section dot-grid-bg" id="apply">
         <div className="wrap" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "start" }}>
           <div>
             <div className="eyebrow" style={{ marginBottom: 14 }}>Want to learn more?</div>
