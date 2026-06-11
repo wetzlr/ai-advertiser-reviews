@@ -96,7 +96,7 @@ export default function ContactForm() {
             <span>
               By checking this box, I consent to receive transactional SMS messages and account alerts from {BIZ_FULL} ({BIZ_LEGAL}),
               including order confirmations, appointment reminders, and account notifications.
-              Message frequency may vary. Message {"&"} data rates may apply.
+              Message frequency may vary. Message &amp; data rates may apply.
               Reply HELP for help. Reply STOP to unsubscribe.
             </span>
           </label>
@@ -110,7 +110,7 @@ export default function ContactForm() {
             <span>
               By checking this box, I consent to receive promotional SMS messages from {BIZ_FULL} ({BIZ_LEGAL}),
               including special offers, discounts, and new product updates.
-              Message frequency may vary. Message {"&"} data rates may apply.
+              Message frequency may vary. Message &amp; data rates may apply.
               Reply HELP for help. Reply STOP to unsubscribe.
             </span>
           </label>
