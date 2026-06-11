@@ -42,7 +42,7 @@ export default function ReviewsPage() {
           <div style={{ maxWidth: 760 }}>
             <div className="eyebrow" style={{ marginBottom: 14 }}>All member wins</div>
             <h1 className="h1" style={{ marginBottom: 16 }}>
-              {STATS.total} verified wins. <span style={{ color: "var(--gold)" }}>★ {STATS.avg}</span> average.
+              Verified member wins.
             </h1>
             <p className="lead">
               Every entry is from a verified member of the AI-Advertiser program — pulled directly from our internal member portal.
@@ -80,7 +80,7 @@ export default function ReviewsPage() {
             {SORT_OPTIONS.map((o) => <option key={o.id} value={o.id}>{o.label}</option>)}
           </select>
           <div style={{ marginLeft: "auto", fontSize: 13, color: "var(--text-muted)" }}>
-            Showing <strong style={{ color: "var(--text)" }}>{paged.length}</strong> of {filtered.length}
+            {query && <>Showing <strong style={{ color: "var(--text)" }}>{filtered.length}</strong> matching</>}
           </div>
         </div>
       </section>
@@ -100,7 +100,7 @@ export default function ReviewsPage() {
               {hasMore && (
                 <div style={{ textAlign: "center", marginTop: 36 }}>
                   <button onClick={() => setPage((p) => p + 1)} className="btn btn-ghost">
-                    Load more ({filtered.length - paged.length} remaining)
+                    Load more
                   </button>
                 </div>
               )}

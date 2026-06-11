@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { BUSINESS } from "@/lib/business";
 
 function StarBar() {
@@ -47,13 +46,13 @@ export default function WinCard({ win }) {
       />
       <header className="win-head">
         {win.memberPhoto ? (
-          <Image
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
             src={win.memberPhoto}
             alt={win.memberName}
             width={42}
             height={42}
             className="win-avatar"
-            unoptimized
           />
         ) : (
           <div className="win-avatar" aria-hidden="true">
@@ -72,13 +71,13 @@ export default function WinCard({ win }) {
 
       {win.imageUrl && (
         <div className="win-image-wrap">
-          {/* unoptimized = Supabase public bucket URL, no Next image proxy needed */}
-          <Image
+          {/* Raw <img> so each screenshot keeps its natural aspect ratio.
+              Forced 16:10 crop was chopping tall iMessage / bank receipts. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src={win.imageUrl}
             alt={`${win.memberName} — ${win.title}`}
-            fill
-            unoptimized
-            sizes="(max-width: 768px) 100vw, 33vw"
+            loading="lazy"
           />
         </div>
       )}

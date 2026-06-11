@@ -10,8 +10,8 @@ export const BUSINESS = {
   fullName: "Brez Marketing LLC DBA AI-Advertiser",
   domain: "aiadvertiserreviews.com",
   url: "https://aiadvertiserreviews.com",
-  supportEmail: "support@aiadvertiserreviews.com",
-  contactEmail: "hello@aiadvertiserreviews.com",
+  supportEmail: "support@ai-advertiser.com",
+  contactEmail: "support@ai-advertiser.com",
   phone: "+1 (305) 555-0142",          // TODO: swap for real Twilio/GHL number before A2P submit
   phoneDisplay: "(305) 555-0142",
   smsKeywordHelp: "HELP",
@@ -27,7 +27,7 @@ export const BUSINESS = {
   founded: "2024",
   industry: "Marketing services / brand scaling education",
   description:
-    "AI-Advertiser is the brand-scaling program from Brez Marketing LLC. We teach entrepreneurs how to run ads for brands and stack recurring monthly revenue. This site collects verified reviews from program members.",
+    "AI-Advertiser is an AI-powered advertising platform and education company founded by Brez Scales. We build tools that automate ad creation, audience research, and campaign optimization for digital advertisers, and teach people how to use them to run profitable ad agencies for local businesses. Our software (Adlevel.ai) and training program help complete beginners launch, manage, and scale paid ad campaigns using AI agents that do the heavy lifting.",
 };
 
 export const ADDRESS_ONE_LINE = `${BUSINESS.address.line1}, ${BUSINESS.address.city}, ${BUSINESS.address.state} ${BUSINESS.address.zip}`;

@@ -11,11 +11,10 @@ export default function AboutPage() {
           <div style={{ maxWidth: 760 }}>
             <div className="eyebrow" style={{ marginBottom: 14 }}>About</div>
             <h1 className="h1" style={{ marginBottom: 18 }}>
-              Built by operators currently running ad accounts.
+              An AI-powered advertising platform and education company.
             </h1>
             <p className="lead">
-              {BUSINESS.dba} is the brand-scaling program from {BUSINESS.legalName}. We&apos;ve helped {"700+"} members
-              land their first paying client, replace their day-job income, and stack monthly retainers.
+              Founded by Brez Scales. We build the software, we run the program, and we train the next generation of operators.
             </p>
           </div>
         </div>
@@ -24,17 +23,27 @@ export default function AboutPage() {
       <section className="section">
         <div className="wrap-narrow">
           <h2 className="h2" style={{ marginBottom: 18 }}>What we do</h2>
-          <p className="lead" style={{ marginBottom: 24 }}>
-            We teach people how to run ads for brands and stack recurring monthly revenue. The curriculum covers
-            offer creation, lead generation, sales calls, ad strategy, and operations. The coaching covers your
-            specific deals, week by week, until you close.
+          <p className="lead" style={{ marginBottom: 20 }}>
+            We build tools that automate ad creation, audience research, and campaign optimization for digital advertisers,
+            and teach people how to use them to run profitable ad agencies for local businesses.
+          </p>
+          <p className="lead">
+            Our software (<a href="https://adlevel.ai" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent-bright)" }}>Adlevel.ai</a>)
+            and training program help complete beginners launch, manage, and scale paid ad campaigns using AI agents that do the
+            heavy lifting.
           </p>
 
-          <h2 className="h2" style={{ marginBottom: 18, marginTop: 48 }}>Why this site exists</h2>
+          <h2 className="h2" style={{ marginBottom: 18, marginTop: 56 }}>Why this site exists</h2>
           <p className="lead">
-            Most program wins live scattered across Discord screenshots, Instagram comments, and DMs. We built this site so
-            prospects can read the unfiltered version in one place — names, screenshots, and stories — before they ever
-            talk to us. The wins shown here are pulled directly from our internal member portal where members submit them.
+            Most member wins live scattered across Discord screenshots, Instagram comments, and DMs. We built this site so
+            prospects can read the unfiltered version in one place — names, screenshots, stories — before they ever talk to us.
+            Every win is pulled directly from our internal member portal where members submit them.
+          </p>
+
+          <h2 className="h2" style={{ marginBottom: 18, marginTop: 56 }}>The company</h2>
+          <p className="lead">
+            AI-Advertiser is operated by <strong>{BUSINESS.legalName}</strong>, doing business as <strong>{BUSINESS.dba}</strong>.
+            Headquartered in Miami Beach, Florida.
           </p>
 
           <div style={{ marginTop: 48 }}>
@@ -45,4 +54,3 @@ export default function AboutPage() {
     </>
   );
 }
-
