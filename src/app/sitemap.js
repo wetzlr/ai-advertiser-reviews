@@ -3,7 +3,7 @@ import { BUSINESS } from "@/lib/business";
 export default function sitemap() {
   const now = new Date();
   const base = BUSINESS.url;
-  const pages = ["", "reviews", "services", "about", "faq", "contact", "privacy", "terms", "sms-terms"];
+  const pages = ["", "reviews", "about", "faq", "contact", "privacy", "terms", "sms-terms"];
   return pages.map((p) => ({
     url: `${base}${p ? "/" + p : ""}`,
     lastModified: now,
