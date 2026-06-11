@@ -1,6 +1,5 @@
 import Link from "next/link";
 import WinCard from "@/components/WinCard";
-import ContactForm from "@/components/ContactForm";
 import { WINS, STATS } from "@/lib/wins";
 import { BUSINESS } from "@/lib/business";
 
@@ -132,22 +131,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PROGRAM + OPT-IN */}
-      <section className="section dot-grid-bg" id="apply">
-        <div className="wrap" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "start" }}>
-          <div>
-            <div className="eyebrow" style={{ marginBottom: 14 }}>Want to learn more?</div>
-            <h2 className="h2" style={{ marginBottom: 18 }}>
-              Apply to learn about the program.
-            </h2>
-            <p className="lead" style={{ marginBottom: 20 }}>
-              {BUSINESS.brief}
-            </p>
-            <p className="muted" style={{ fontSize: 14, lineHeight: 1.55 }}>
-              Drop your name and email and we&apos;ll get back to you with program details and next steps.
-            </p>
-          </div>
-          <ContactForm />
+      {/* APPLY CTA — form lives at /apply */}
+      <section className="section dot-grid-bg">
+        <div className="wrap-narrow" style={{ textAlign: "center" }}>
+          <div className="eyebrow" style={{ marginBottom: 14 }}>Want to learn more?</div>
+          <h2 className="h2" style={{ marginBottom: 18 }}>
+            Apply to learn about the program.
+          </h2>
+          <p className="lead" style={{ marginBottom: 28, maxWidth: 600, marginLeft: "auto", marginRight: "auto" }}>
+            {BUSINESS.brief}
+          </p>
+          <Link href="/apply" className="btn btn-primary">
+            Apply now
+            <span style={{ marginLeft: 2 }}>→</span>
+          </Link>
         </div>
       </section>
     </>
