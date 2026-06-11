@@ -1,26 +1,29 @@
 "use client";
 
-// A2P-compliant opt-in form. Restructured so the GHL/Twilio compliance
-// scanner can clearly identify every required disclosure:
+// A2P-compliant opt-in form.
 //
-//   1. Business name in consent text  - "Brez Marketing LLC DBA AI-Advertiser"
-//   2. Checkbox NOT pre-checked        - defaultChecked is unset
-//   3. Privacy + T&C links             - rendered below the box
-//   4. Opt-out instructions            - "Reply STOP to opt out"
-//   5. Message frequency disclosure    - "approximately 4-8 messages per month"
-//   6. Checkbox is optional            - submit allowed even if unchecked
-//   7. Message type disclosure         - explicit description per checkbox
-//   8. Message & data rates disclosure - "Message and data rates may apply"
+// The GHL/Twilio compliance scanner does EXACT-PHRASE matching against the
+// checkbox label text only - not the surrounding form copy. So every
+// required disclosure must live INSIDE the <label> next to each checkbox,
+// in the precise phrasing the scanner expects:
 //
-// Form submission allowed even if neither box is checked. On submit:
-// POST /api/contact -> redirect to /thank-you (single step).
+//   - Business name             : "Brez Marketing LLC"
+//   - Message type              : "transactional" + "alerts" (cbox 1) /
+//                                 "promotional" (cbox 2)
+//   - Frequency disclosure      : "Message frequency may vary"
+//   - Rates disclosure          : "Message & data rates may apply"
+//   - Opt-out instruction       : "Reply STOP to unsubscribe"
+//   - HELP keyword              : "Reply HELP for help"
+//
+// Both checkboxes are optional. Form submits even if neither is checked.
+// On submit -> POST /api/contact -> redirect to /thank-you (single step).
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { BUSINESS } from "@/lib/business";
 
-const BIZ = `${BUSINESS.legalName} DBA ${BUSINESS.dba}`;
+const BIZ_LEGAL = "Brez Marketing LLC";
+const BIZ_FULL  = "Brez Marketing LLC DBA AI-Advertiser";
 
 export default function ContactForm() {
   const router = useRouter();
@@ -82,57 +85,42 @@ export default function ContactForm() {
           />
         </div>
 
-        {/* ── A2P-compliant SMS consent block ──
-            Two optional, unchecked checkboxes. Each has a short consent label
-            and a clearly-separated disclosure paragraph below containing every
-            required item (business name, message types, frequency, rates,
-            opt-out, help). Compliance scanners check each disclosure
-            independently, so separating them gives the cleanest pass. */}
-        <div style={{ display: "grid", gap: 14, marginTop: 8 }}>
-          <div className="consent-block">
-            <label className="checkbox-row" htmlFor="consent_transactional">
-              <input
-                id="consent_transactional"
-                name="consent_transactional"
-                type="checkbox"
-              />
-              <span>
-                I consent to receive transactional SMS messages from {BIZ}.
-              </span>
-            </label>
-            <p className="consent-disclosure">
-              Transactional messages may include appointment reminders, order confirmations, and account notifications.
-              Message frequency is approximately 4 to 8 messages per month. Message and data rates may apply.
-              Reply HELP for help. Reply STOP to opt out at any time. View our{" "}
-              <Link href="/privacy">Privacy Policy</Link> and{" "}
-              <Link href="/terms">Terms of Service</Link>.
-            </p>
-          </div>
+        {/* ── A2P-compliant consent block ── */}
+        <div style={{ display: "grid", gap: 12, marginTop: 8 }}>
+          <label className="checkbox-row" htmlFor="consent_transactional">
+            <input
+              id="consent_transactional"
+              name="consent_transactional"
+              type="checkbox"
+            />
+            <span>
+              By checking this box, I consent to receive transactional SMS messages and account alerts from {BIZ_FULL} ({BIZ_LEGAL}),
+              including order confirmations, appointment reminders, and account notifications.
+              Message frequency may vary. Message {"&"} data rates may apply.
+              Reply HELP for help. Reply STOP to unsubscribe.
+            </span>
+          </label>
 
-          <div className="consent-block">
-            <label className="checkbox-row" htmlFor="consent_marketing">
-              <input
-                id="consent_marketing"
-                name="consent_marketing"
-                type="checkbox"
-              />
-              <span>
-                I consent to receive marketing SMS messages from {BIZ}.
-              </span>
-            </label>
-            <p className="consent-disclosure">
-              Marketing messages may include special offers, discounts, and new program updates.
-              Message frequency is approximately 4 to 8 messages per month. Message and data rates may apply.
-              Reply HELP for help. Reply STOP to opt out at any time. View our{" "}
-              <Link href="/privacy">Privacy Policy</Link> and{" "}
-              <Link href="/terms">Terms of Service</Link>.
-            </p>
-          </div>
+          <label className="checkbox-row" htmlFor="consent_marketing">
+            <input
+              id="consent_marketing"
+              name="consent_marketing"
+              type="checkbox"
+            />
+            <span>
+              By checking this box, I consent to receive promotional SMS messages from {BIZ_FULL} ({BIZ_LEGAL}),
+              including special offers, discounts, and new product updates.
+              Message frequency may vary. Message {"&"} data rates may apply.
+              Reply HELP for help. Reply STOP to unsubscribe.
+            </span>
+          </label>
         </div>
 
         <p style={{ fontSize: 12, color: "var(--text-muted)", lineHeight: 1.55 }}>
           Both SMS consent checkboxes are optional. You can submit this form without checking either.
-          You must be 18 years of age or older to submit this form. No mobile information will be shared with
+          You must be 18 years of age or older to submit this form.
+          By submitting, you agree to our <Link href="/terms">Terms of Service</Link> and{" "}
+          <Link href="/privacy">Privacy Policy</Link>. No mobile information will be shared with
           third parties or affiliates for marketing or promotional purposes.
         </p>
 
