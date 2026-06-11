@@ -45,7 +45,7 @@ export default function ReviewsPage() {
               Verified member wins.
             </h1>
             <p className="lead">
-              Every entry is from a verified member of the AI-Advertiser program — pulled directly from our internal member portal.
+              Every entry is from a verified member of the AI-Advertiser program, pulled directly from our internal member portal.
               Names, screenshots, and stories are theirs.
             </p>
           </div>

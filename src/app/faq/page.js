@@ -5,7 +5,7 @@ export const metadata = { title: "FAQ" };
 const FAQ = [
   {
     q: "Are these reviews real?",
-    a: "Yes. Every review on this site is from a verified program member with their name, location, and date of joining. We don't edit reviews for sentiment — what they wrote is what's published.",
+    a: "Yes. Every review on this site is from a verified program member, pulled from our internal member portal. We don't edit reviews for sentiment. What they wrote is what's published.",
   },
   {
     q: "How long does it usually take to land a first client?",
@@ -21,7 +21,7 @@ const FAQ = [
   },
   {
     q: "Is there a refund policy?",
-    a: "Yes — written in the contract you sign at enrollment. Refunds are evaluated on a case-by-case basis when members can demonstrate they've completed the program milestones and the program didn't perform as promised.",
+    a: "Yes. Refund terms are written in the contract you sign at enrollment. Refunds are evaluated on a case-by-case basis when members can demonstrate they've completed the program milestones and the program didn't perform as promised.",
   },
   {
     q: "How do I get in touch?",
@@ -29,7 +29,7 @@ const FAQ = [
   },
   {
     q: "Do you send text messages?",
-    a: `Only if you opt in. When you fill out the contact form, you'll see two clearly-labeled checkboxes — one for transactional messages (appointment reminders, account updates), one for marketing (offers, program updates). Both are optional. Text STOP to opt out any time. See the SMS terms page for details.`,
+    a: `Only if you opt in. When you fill out the application form, you'll see two clearly-labeled checkboxes. One for transactional messages (appointment reminders, account updates), one for marketing (offers, program updates). Both are optional. Text STOP to opt out any time. See the SMS terms page for details.`,
   },
   {
     q: "Is this affiliated with any other agency program?",

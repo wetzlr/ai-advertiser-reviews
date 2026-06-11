@@ -36,8 +36,8 @@ export default function AboutPage() {
           <h2 className="h2" style={{ marginBottom: 18, marginTop: 56 }}>Why this site exists</h2>
           <p className="lead">
             Most member wins live scattered across Discord screenshots, Instagram comments, and DMs. We built this site so
-            prospects can read the unfiltered version in one place — names, screenshots, stories — before they ever talk to us.
-            Every win is pulled directly from our internal member portal where members submit them.
+            prospects can read the unfiltered version in one place. Names, screenshots, stories. Every win is pulled
+            directly from our internal member portal where members submit them.
           </p>
 
           <h2 className="h2" style={{ marginBottom: 18, marginTop: 56 }}>The company</h2>

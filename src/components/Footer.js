@@ -24,7 +24,6 @@ export default function Footer() {
           <div>
             <h4>Browse</h4>
             <Link href="/reviews">All reviews</Link>
-            <Link href="/services">The program</Link>
             <Link href="/faq">FAQ</Link>
           </div>
 

@@ -5,10 +5,9 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const NAV = [
-  { href: "/reviews",  label: "Reviews" },
-  { href: "/services", label: "Program" },
-  { href: "/about",    label: "About" },
-  { href: "/contact",  label: "Contact" },
+  { href: "/reviews", label: "Reviews" },
+  { href: "/about",   label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {

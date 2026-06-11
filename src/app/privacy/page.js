@@ -55,7 +55,7 @@ export default function PrivacyPage() {
       <Section title="SMS consent and opt-out">
         <p>
           When you check a consent box on our contact form, you authorize us to send you SMS messages of the type
-          described in that specific consent box. Both consent boxes are optional — you can submit the form without
+          described in that specific consent box. Both consent boxes are optional. You can submit the form without
           opting in to either.
         </p>
         <p>

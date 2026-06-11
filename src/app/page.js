@@ -1,5 +1,6 @@
 import Link from "next/link";
 import WinCard from "@/components/WinCard";
+import ContactForm from "@/components/ContactForm";
 import { WINS, STATS } from "@/lib/wins";
 import { BUSINESS } from "@/lib/business";
 
@@ -35,12 +36,12 @@ export default function HomePage() {
               Real wins from real members of <span style={{ color: "var(--accent-bright)" }}>AI-Advertiser</span>.
             </h1>
             <p className="lead" style={{ maxWidth: 660, marginBottom: 32 }}>
-              Pulled directly from our internal member portal. Names, screenshots, and stories you can verify —
-              what they submit is what gets shown.
+              Pulled directly from our internal member portal. Names, screenshots, and stories you can verify.
+              What members submit is what gets shown.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <Link href="/reviews" className="btn btn-primary">
-                Read member wins →
+                Read member wins
               </Link>
               <a
                 href="https://www.trustpilot.com/review/ai-advertiser.com"
@@ -98,17 +99,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA STRIP */}
-      <section className="section" style={{ textAlign: "center" }}>
-        <div className="wrap-narrow">
-          <h2 className="h2" style={{ marginBottom: 16 }}>Curious whether this is for you?</h2>
-          <p className="lead" style={{ marginBottom: 28 }}>
-            Read the wins, then get in touch.
-          </p>
-          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/reviews" className="btn btn-primary">Read member wins →</Link>
-            <Link href="/contact" className="btn btn-ghost">Contact us</Link>
+      {/* PROGRAM + OPT-IN */}
+      <section className="section" id="apply">
+        <div className="wrap" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "start" }}>
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 14 }}>Want to learn more?</div>
+            <h2 className="h2" style={{ marginBottom: 18 }}>
+              Apply to learn about the program.
+            </h2>
+            <p className="lead" style={{ marginBottom: 20 }}>
+              {BUSINESS.brief}
+            </p>
+            <p className="muted" style={{ fontSize: 14, lineHeight: 1.55 }}>
+              Drop your name and email and we&apos;ll get back to you with program details and next steps.
+            </p>
           </div>
+          <ContactForm />
         </div>
       </section>
     </>

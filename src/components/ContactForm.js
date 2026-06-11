@@ -1,19 +1,13 @@
 "use client";
 
-// Contact form — A2P-compliant opt-in flow.
-//
-// Per Twilio/carrier requirements:
-//   - Both consent checkboxes are OPTIONAL and NOT pre-checked.
-//   - Form submission is allowed even if neither checkbox is selected.
-//   - We honor the user's selection (only send SMS if they opted in to that type).
-//   - The exact disclosure language ([BUSINESS], message types, frequency,
-//     STOP/HELP, message/data rates) matches the campaign use case description.
-//   - Links to Privacy Policy + Terms are below the checkboxes, NOT inside the
-//     checkbox text (the doc is explicit about this).
-//
-// On submit: POST /api/contact, then redirect to /thank-you. No multi-step
-// opt-in pages — the doc says secondary opt-in forms get rejected as
-// "misalignment in the message flow."
+// Application form. Doubles as the A2P-compliant SMS opt-in.
+// - Phone field removed per Noah's request (still in the schema if a user
+//   opts in to SMS, just collected via the SMS workflow not here).
+// - Both consent checkboxes are OPTIONAL and NOT pre-checked.
+// - Submission is allowed even if neither box is selected.
+// - The disclosure language exactly matches the A2P campaign description.
+// - Links to Privacy + T&C are below the boxes, not inside the checkbox text.
+// - On submit: POST /api/contact → redirect to /thank-you (single step).
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -34,7 +28,6 @@ export default function ContactForm() {
     const payload = {
       name: fd.get("name"),
       email: fd.get("email"),
-      phone: fd.get("phone") || null,
       message: fd.get("message"),
       consent_transactional: fd.get("consent_transactional") === "on",
       consent_marketing: fd.get("consent_marketing") === "on",
@@ -61,29 +54,27 @@ export default function ContactForm() {
     <form onSubmit={onSubmit} className="card" style={{ padding: 28 }}>
       <div style={{ display: "grid", gap: 16 }}>
         <div>
-          <label htmlFor="name">Your name *</label>
+          <label htmlFor="name">Your name</label>
           <input id="name" name="name" type="text" required autoComplete="name" />
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-          <div>
-            <label htmlFor="email">Email *</label>
-            <input id="email" name="email" type="email" required autoComplete="email" />
-          </div>
-          <div>
-            <label htmlFor="phone">Phone (optional)</label>
-            <input id="phone" name="phone" type="tel" autoComplete="tel" />
-          </div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input id="email" name="email" type="email" required autoComplete="email" />
         </div>
 
         <div>
-          <label htmlFor="message">What can we help with? *</label>
-          <textarea id="message" name="message" rows={5} required placeholder="Tell us a bit about where you're at and what you're looking for." />
+          <label htmlFor="message">Why are you reaching out?</label>
+          <textarea
+            id="message"
+            name="message"
+            rows={4}
+            required
+            placeholder="A sentence or two about what you&#39;re looking for is fine."
+          />
         </div>
 
-        {/* ────────────── A2P-compliant opt-in checkboxes ────────────── */}
-        {/* Both optional. Both unchecked by default. Disclosures include
-            business name, message types, frequency, rates, HELP/STOP. */}
+        {/* A2P-compliant opt-in checkboxes. Both optional + unchecked. */}
         <div style={{ display: "grid", gap: 10, marginTop: 8 }}>
           <label className="checkbox-row" htmlFor="consent_transactional">
             <input id="consent_transactional" name="consent_transactional" type="checkbox" />
@@ -106,8 +97,8 @@ export default function ContactForm() {
         </div>
 
         <p style={{ fontSize: 12, color: "var(--text-muted)", lineHeight: 1.55 }}>
-          By submitting this form, you agree to our <Link href="/terms" style={{ color: "var(--accent)" }}>Terms of Service</Link> and{" "}
-          <Link href="/privacy" style={{ color: "var(--accent)" }}>Privacy Policy</Link>. No mobile information will be shared with
+          By submitting this form, you agree to our <Link href="/terms" style={{ color: "var(--accent-bright)" }}>Terms of Service</Link> and{" "}
+          <Link href="/privacy" style={{ color: "var(--accent-bright)" }}>Privacy Policy</Link>. No mobile information will be shared with
           third parties or affiliates for marketing or promotional purposes.
         </p>
 
@@ -118,7 +109,7 @@ export default function ContactForm() {
         )}
 
         <button type="submit" className="btn btn-primary" disabled={submitting} style={{ justifySelf: "start", marginTop: 8 }}>
-          {submitting ? "Sending…" : "Send message →"}
+          {submitting ? "Sending..." : "Submit application"}
         </button>
       </div>
     </form>

@@ -6,7 +6,7 @@ import { BUSINESS, ADDRESS_ONE_LINE } from "@/lib/business";
 export const metadata = {
   metadataBase: new URL(BUSINESS.url),
   title: {
-    default: `${BUSINESS.dba} Reviews — Verified testimonials from program members`,
+    default: `${BUSINESS.dba} Reviews · Verified testimonials from program members`,
     template: `%s · ${BUSINESS.dba} Reviews`,
   },
   description:

@@ -85,7 +85,7 @@ export default function TermsPage() {
 
       <Section title="Intellectual property">
         <p>
-          All content on this website — including text, graphics, logos, curriculum materials, and software — is owned
+          All content on this website, including text, graphics, logos, curriculum materials, and software, is owned
           by {BUSINESS.legalName} or our licensors and is protected by copyright and trademark law. You may not copy,
           modify, distribute, or create derivative works without our express written permission.
         </p>
@@ -94,7 +94,7 @@ export default function TermsPage() {
       <Section title="Disclaimers">
         <p>
           The site and services are provided &ldquo;as is&rdquo; without warranty of any kind. We do not guarantee
-          specific outcomes from our program — individual results depend on each member&apos;s effort, prior experience,
+          specific outcomes from our program. Individual results depend on each member&apos;s effort, prior experience,
           and circumstances. Income examples on this site are real but are not a guarantee of similar results.
         </p>
       </Section>

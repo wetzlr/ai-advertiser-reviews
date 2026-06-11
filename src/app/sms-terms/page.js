@@ -19,11 +19,11 @@ export default function SmsTermsPage() {
         <p>When you fill out the contact form on our website, you&apos;ll see two clearly-labeled, optional consent checkboxes:</p>
         <ol>
           <li>
-            <strong>Transactional consent</strong> — for messages related to your account, orders, or services you have
-            requested. Examples: appointment reminders, order confirmations, account notifications.
+            <strong>Transactional consent</strong>. For messages related to your account, orders, or services you have
+            requested. Examples include appointment reminders, order confirmations, and account notifications.
           </li>
           <li>
-            <strong>Marketing consent</strong> — for messages about special offers, discounts, and new program updates.
+            <strong>Marketing consent</strong>. For messages about special offers, discounts, and new program updates.
           </li>
         </ol>
         <p>
@@ -47,19 +47,19 @@ export default function SmsTermsPage() {
         </p>
       </Section>
 
-      <Section title="Opt out — reply STOP">
+      <Section title="Opt out: reply STOP">
         <p>
           You can opt out at any time by replying <strong>STOP</strong> to any message you receive from us. You will
           receive one confirmation message acknowledging the opt-out, and no further messages will be sent.
         </p>
         <p>
           To opt back in later, simply check the consent boxes again on our contact form. STOP applies separately to
-          each consent type — if you opted in to both transactional and marketing and reply STOP to one campaign, we
+          each consent type. If you opted in to both transactional and marketing and reply STOP to one campaign, we
           will stop both unless you re-opt-in.
         </p>
       </Section>
 
-      <Section title="Help — reply HELP">
+      <Section title="Help: reply HELP">
         <p>
           Reply <strong>HELP</strong> to any message for support. You can also contact us directly at{" "}
           <a href={`mailto:${BUSINESS.supportEmail}`}>{BUSINESS.supportEmail}</a> or by phone at{" "}
