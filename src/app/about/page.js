@@ -40,6 +40,26 @@ export default function AboutPage() {
             directly from our internal member portal where members submit them.
           </p>
 
+          <h2 className="h2" style={{ marginBottom: 18, marginTop: 56 }}>Leadership</h2>
+          <p className="lead" style={{ marginBottom: 28 }}>
+            The team running {BUSINESS.dba}.
+          </p>
+          <div style={{ display: "grid", gap: 18 }}>
+            {[
+              { name: "Brez Scales", role: "Founder & CEO" },
+              { name: "Pierre Khoury", role: "Partner" },
+              { name: "Noah Wetzelaer", role: "Head of Operations" },
+            ].map((p) => (
+              <div
+                key={p.name}
+                style={{ borderLeft: "3px solid var(--accent-bright)", paddingLeft: 16 }}
+              >
+                <div style={{ fontWeight: 700, fontSize: 18 }}>{p.name}</div>
+                <div style={{ color: "#9aa0b0", fontSize: 15 }}>{p.role}</div>
+              </div>
+            ))}
+          </div>
+
           <h2 className="h2" style={{ marginBottom: 18, marginTop: 56 }}>The company</h2>
           <p className="lead">
             AI-Advertiser is operated by <strong>{BUSINESS.legalName}</strong>, doing business as <strong>{BUSINESS.dba}</strong>.
