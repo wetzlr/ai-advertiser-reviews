@@ -46,7 +46,11 @@ export default function AboutPage() {
           </p>
           <div style={{ display: "grid", gap: 18 }}>
             {[
-              { name: "Brez Scales", role: "Founder & CEO" },
+              // "Brez Scales" is the public persona of Bergen Resnick, the
+              // registered managing member of Brez Marketing LLC (AZ filing +
+              // EIN). Showing the legal name here lets identity verifiers
+              // (Twilio Trust Hub error 18604) tie the site to the registration.
+              { name: "Bergen Resnick (Brez Scales)", role: "Founder & CEO · Managing Member, Brez Marketing LLC" },
               { name: "Pierre Khoury", role: "Partner" },
               { name: "Noah Wetzelaer", role: "Head of Operations" },
             ].map((p) => (

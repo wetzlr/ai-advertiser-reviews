@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BUSINESS, ADDRESS_ONE_LINE } from "@/lib/business";
+import { BUSINESS, ADDRESS_ONE_LINE, REGISTERED_ADDRESS_ONE_LINE } from "@/lib/business";
 
 export const metadata = { title: "Terms of Service" };
 
@@ -135,7 +135,8 @@ export default function TermsPage() {
         <p>Questions about these Terms? Contact us at:</p>
         <p style={{ marginTop: 12 }}>
           <strong>{BUSINESS.legalName} DBA {BUSINESS.dba}</strong><br />
-          {ADDRESS_ONE_LINE}<br />
+          Mailing address: {ADDRESS_ONE_LINE}<br />
+          Registered address: {REGISTERED_ADDRESS_ONE_LINE}<br />
           Email: <a href={`mailto:${BUSINESS.supportEmail}`}>{BUSINESS.supportEmail}</a><br />
           Phone: {BUSINESS.phoneDisplay}
         </p>

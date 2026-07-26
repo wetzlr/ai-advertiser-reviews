@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
     legalName: BUSINESS.legalName,
     url: BUSINESS.url,
     email: BUSINESS.supportEmail,
-    founder: { "@type": "Person", name: "Brez Scales", jobTitle: "Founder & CEO" },
+    founder: { "@type": "Person", name: "Bergen Resnick", alternateName: "Brez Scales", jobTitle: "Founder & CEO" },
     employee: [
       { "@type": "Person", name: "Pierre Khoury", jobTitle: "Partner" },
       { "@type": "Person", name: "Noah Wetzelaer", jobTitle: "Head of Operations" },

@@ -24,6 +24,18 @@ export const BUSINESS = {
     zip: "33141",
     country: "USA",
   },
+  // Legal registered address of Brez Marketing LLC (IRS CP575 / Arizona state
+  // filing). Verification reviewers (Twilio Trust Hub, caller-ID analytics,
+  // A2P vetting) match the website against the official registration, so this
+  // must appear on the site exactly as registered. Miami Beach above stays the
+  // operating/mailing address.
+  registeredAddress: {
+    line1: "133 W 6th St, Apt 330",
+    city: "Tempe",
+    state: "AZ",
+    zip: "85281",
+    country: "USA",
+  },
   founded: "2024",
   industry: "Marketing services / brand scaling education",
   description:
@@ -33,3 +45,4 @@ export const BUSINESS = {
 };
 
 export const ADDRESS_ONE_LINE = `${BUSINESS.address.line1}, ${BUSINESS.address.city}, ${BUSINESS.address.state} ${BUSINESS.address.zip}`;
+export const REGISTERED_ADDRESS_ONE_LINE = `${BUSINESS.registeredAddress.line1}, ${BUSINESS.registeredAddress.city}, ${BUSINESS.registeredAddress.state} ${BUSINESS.registeredAddress.zip}`;

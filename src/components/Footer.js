@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { BUSINESS } from "@/lib/business";
+import { BUSINESS, REGISTERED_ADDRESS_ONE_LINE } from "@/lib/business";
 
 export default function Footer() {
   return (
@@ -45,7 +45,10 @@ export default function Footer() {
 
         <div className="site-footer-bottom">
           <span>© 2026 {BUSINESS.legalName} DBA {BUSINESS.dba}. All rights reserved.</span>
-          <span>Miami Beach, FL · USA</span>
+          {/* Registered address must be visible on-site: Twilio Trust Hub and
+              caller-ID verification reviewers match the site against the AZ
+              registration. Miami Beach stays the mailing address on /contact. */}
+          <span>Registered address: {REGISTERED_ADDRESS_ONE_LINE}</span>
         </div>
       </div>
     </footer>
